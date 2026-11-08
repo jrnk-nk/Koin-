@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0F0D" />
+    <meta
+      name="description"
+      content="Meet Koin. Learn to budget, build saving habits, and make your next money move with interactive lessons and challenges."
+    />
+    <title>Koin — Your money. Your moves. Your future.</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23b7ff5a'/%3E%3Cpath d='M19 16v32h8V35l12 13h11L34 31l15-15H38L27 28V16z' fill='%230a0f0d'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- One lightweight, reusable SVG icon set. All decorative uses are hidden from screen readers. -->
+    <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-up-right" viewBox="0 0 24 24">
+          <path d="M6 18 18 6M6 6h12v12" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          <rect x="14" y="14" width="7" height="7" rx="1.5" />
+        </symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24">
+          <path
+            d="M20 8V5a2 2 0 0 0-2-2H6a3 3 0 0 0 0 6h14v12H6a3 3 0 0 1-3-3V6m17 7h-5v4h5"
+          />
+        </symbol>
+        <symbol id="i-target" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="12" cy="12" r="1" />
+        </symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24">
+          <path
+            d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"
+          />
+        </symbol>
+        <symbol id="i-bolt" viewBox="0 0 24 24">
+          <path d="m13 2-9 12h7l-1 8 10-12h-8l1-8Z" />
+        </symbol>
+        <symbol id="i-book" viewBox="0 0 24 24">
+          <path
+            d="M12 5v16m0-16C9 3 6 3 3 4v15c3-1 6-1 9 2m0-16c3-2 6-2 9-1v15c-3-1-6-1-9 2"
+          />
+        </symbol>
+        <symbol id="i-trend" viewBox="0 0 24 24">
+          <path d="m3 17 6-6 4 4 8-10m-7 0h7v7" />
+        </symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24">
+          <path d="M20 3C6 2 2 9 6 15c6 6 15-1 14-12ZM4 21 15 10" />
+        </symbol>
+        <symbol id="i-bag" viewBox="0 0 24 24">
+          <path d="M5 8h14l2 13H3L5 8Zm3 0V6a4 4 0 0 1 8 0v2" />
+        </symbol>
+        <symbol id="i-coins" viewBox="0 0 24 24">
+          <ellipse cx="9" cy="6" rx="6" ry="3" />
+          <path
+            d="M3 6v5c0 4 12 4 12 0V6M3 11v5c0 4 12 4 12 0v-5m3-3c5 0 6 5 1 6m0 0v5c-1 1-2 1-4 1"
+          />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24">
+          <path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z" />
+          <path d="m8 12 3 3 5-6" />
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </symbol>
+        <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" /></symbol>
+        <symbol id="i-edit" viewBox="0 0 24 24">
+          <path d="m15 4 5 5M4 20l5-1L21 7l-5-5L4 14v6Z" />
+        </symbol>
+        <symbol id="i-trash" viewBox="0 0 24 24">
+          <path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7" />
+        </symbol>
+        <symbol id="i-shuffle" viewBox="0 0 24 24">
+          <path
+            d="M3 5h3c5 0 7 14 12 14h3m-4-4 4 4-4 4M3 19h3c2 0 4-3 6-7m3-5c1-1 2-2 3-2h3m-4-4 4 4-4 4"
+          />
+        </symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24">
+          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z" />
+          <circle cx="12" cy="12" r="3" />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-exit" viewBox="0 0 24 24">
+          <path d="M9 3H4v18h5m0-9h12m-5-5 5 5-5 5" />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v6m0-10v.1" />
+        </symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24">
+          <rect x="3" y="7" width="18" height="14" rx="2" />
+          <path d="M8 7V3h8v4M3 12l9 4 9-4m-9 1v5" />
+        </symbol>
+        <symbol id="i-calc" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2" />
+          <path d="M8 6h8M8 11h1m6 0h1m-8 4h1m6 0h1m-8 4h1m6 0h1" />
+        </symbol>
+        <symbol id="i-refresh" viewBox="0 0 24 24">
+          <path d="M20 8A9 9 0 1 0 21 15M20 3v6h-6" />
+        </symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24">
+          <path d="m8 4 8 8-8 8" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <div id="home-view">
+      <header class="site-header wrap">
+        <a class="brand" href="#home" aria-label="Koin home"
+          ><span class="brand-mark" aria-hidden="true"
+            ><i></i><i></i><i></i></span
+          >koin<span class="brand-period">.</span></a
+        >
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#why-koin">Why Koin</a
+          ><a href="#how-it-works">How it works</a
+          ><a href="#learn">The learning lab <span class="nav-dot"></span></a>
+        </nav>
+        <div class="header-actions">
+          <button class="text-button login-link" data-auth="login">
+            Log in
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-up-right" />
+            </svg></button
+          ><button class="button button-small" data-auth="register">
+            Get started
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-arrow" />
+            </svg></button
+          ><button
+            class="icon-button mobile-menu-button"
+            data-action="menu"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+        <nav
+          id="mobile-nav"
+          class="mobile-nav"
+          aria-label="Mobile navigation"
+          hidden
+        >
+          <a href="#why-koin">Why Koin</a
+          ><a href="#how-it-works">How it works</a
+          ><a href="#learn">The learning lab</a
+          ><button data-auth="login">Log in to Koin</button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero wrap" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="status-dot"></span> A LITTLE KNOW-HOW. A LOT OF
+              POSSIBILITY.
+            </div>
+            <h1 id="hero-title">
+              Your money.<br />Your moves.<br />Your
+              <span class="future-word"
+                >future.<svg viewBox="0 0 320 20" aria-hidden="true">
+                  <path
+                    d="M3 14C94-2 219-1 313 8M36 18c76-10 185-12 243-5"
+                  /></svg
+              ></span>
+            </h1>
+            <p class="hero-description">
+              Take control of your money, build smarter habits, and make
+              financial decisions that actually make sense for you.
+            </p>
+            <div class="hero-actions">
+              <button class="button" data-auth="register">
+                Start Your Journey
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-up-right" />
+                </svg></button
+              ><a class="button button-outline" href="#dashboard"
+                >Explore Koin
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" /></svg
+              ></a>
+            </div>
+            <div class="hero-footnote">
+              <span class="mini-icons"
+                ><span
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#i-bolt" /></svg></span
+                ><span
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#i-leaf" /></svg></span
+                ><span
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#i-target" /></svg></span
+              ></span>
+              <p>
+                Real-life skills.<br /><strong
+                  >Way more interesting than a textbook.</strong
+                >
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="hero-scene"
+            aria-label="Illustrative Koin dashboard with a balance of 1,245 dollars and a savings goal at 70 percent"
+          >
+            <div class="scene-glow" aria-hidden="true"></div>
+            <div class="orbit orbit-one" aria-hidden="true"></div>
+            <div class="orbit orbit-two" aria-hidden="true"></div>
+            <div class="orbit orbit-three" aria-hidden="true"></div>
+            <span class="scene-star star-one" aria-hidden="true">✦</span
+            ><span class="scene-star star-two" aria-hidden="true">✦</span
+            ><span class="scene-dot dot-one" aria-hidden="true"></span
+            ><span class="scene-dot dot-two" aria-hidden="true"></span>
+            <div class="hero-coin" aria-hidden="true">
+              <div class="coin-rim">
+                <span class="brand-mark coin-k"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <div class="income-float float-card">
+              <div class="income-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
+              </div>
+              <div>
+                <span>Small wins add up</span
+                ><strong>Future you says thanks.</strong>
+              </div>
+              <span class="tiny-check"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-check" /></svg
+              ></span>
+            </div>
+            <div class="wallet-depth" aria-hidden="true"></div>
+            <div class="hero-wallet" data-hero-tilt>
+              <div class="wallet-top">
+                <span class="wallet-logo">koin<span>®</span></span
+                ><span class="wallet-label"
+                  >YOUR MONEY, IN MOTION <span class="status-dot"></span
+                ></span>
+              </div>
+              <div class="wallet-balance">
+                <span
+                  >Available balance
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#i-eye" /></svg></span
+                ><strong>$1,245<span>.00</span></strong
+                ><small><span>↗</span> Looking good. Keep going.</small>
+              </div>
+              <svg
+                class="wallet-chart"
+                viewBox="0 0 400 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="hero-fill" x1="0" x2="0" y1="0" y2="1">
+                    <stop stop-color="#b7ff5a" stop-opacity=".18" />
+                    <stop offset="1" stop-color="#b7ff5a" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path class="chart-grid" d="M0 25h400M0 55h400M0 85h400" />
+                <path
+                  d="M0 72 25 68 51 74 78 52 105 57 132 36 158 43 185 26 210 35 239 18 264 26 291 12 316 19 344 6 370 14 400 1V90H0Z"
+                  fill="url(#hero-fill)"
+                />
+                <path
+                  d="M0 72 25 68 51 74 78 52 105 57 132 36 158 43 185 26 210 35 239 18 264 26 291 12 316 19 344 6 370 14 400 1"
+                  fill="none"
+                  stroke="#b7ff5a"
+                  stroke-width="2.2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="wallet-bottom">
+                <span
+                  ><i class="little-dot"></i> Make room for what matters.</span
+                ><span>DEMO OVERVIEW</span>
+              </div>
+            </div>
+            <div class="goal-float float-card">
+              <div class="goal-float-top">
+                <span class="square-icon"
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#i-target" /></svg></span
+                ><span class="small-label">THE NEXT BIG THING</span
+                ><svg class="icon muted" aria-hidden="true">
+                  <use href="#i-up-right" />
+                </svg>
+              </div>
+              <strong>New laptop fund</strong>
+              <div class="goal-float-values">
+                <span>$350 <small>/ $500</small></span
+                ><span>70%</span>
+              </div>
+              <div class="progress-track"><span style="width: 70%"></span></div>
+              <span class="goal-float-caption"
+                >A little closer, every day.</span
+              >
+            </div>
+            <a class="challenge-float" href="#challenges"
+              ><span class="challenge-float-icon"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-bolt" /></svg
+              ></span>
+              <div>
+                <small>YOUR NEXT MOVE</small><strong>Try a no-spend day</strong>
+              </div>
+              <span class="xp-tag">+25 XP</span
+              ><svg class="icon" aria-hidden="true">
+                <use href="#i-up-right" /></svg
+            ></a>
+            <span class="scene-caption"
+              ><span class="status-dot"></span> A PREVIEW OF YOUR
+              POSSIBILITIES</span
+            >
+          </div>
+        </section>
+
+        <section class="value-strip wrap" aria-label="The Koin approach">
+          <p>Less money stress.<br /><strong>More life skills.</strong></p>
+          <div>
+            <svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg
+            ><span>Made for <strong>real life</strong></span>
+          </div>
+          <div>
+            <svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg
+            ><span>Learn by <strong>actually doing</strong></span>
+          </div>
+          <div>
+            <svg class="icon" aria-hidden="true"><use href="#i-leaf" /></svg
+            ><span>Your pace. <strong>Your path.</strong></span>
+          </div>
+          <span class="strip-spark" aria-hidden="true">✳</span>
+        </section>
+
+        <section id="why-koin" class="section wrap">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="short-line"></span> MONEY SKILLS. LIFE UPGRADED.
+              </div>
+              <h2>
+                Good with money.<br /><span class="text-muted"
+                  >Better at life.</span
+                >
+              </h2>
+            </div>
+            <p>
+              You don’t need to have it all figured out.<br />Just a place to
+              start, a plan that fits, and<br class="desktop-break" />
+              a few smart moves along the way.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card budget-feature" data-tilt>
+              <div class="feature-topline">
+                <span>01 / FIND YOUR BALANCE</span
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-wallet" />
+                </svg>
+              </div>
+              <div class="budget-visual">
+                <div class="budget-donut" id="home-budget-ring">
+                  <div>
+                    <span>YOUR BUDGET</span
+                    ><strong id="home-budget-total">$600</strong
+                    ><small>put to good use</small>
+                  </div>
+                </div>
+                <div class="budget-legend">
+                  <span><i></i>Needs <b id="home-needs">$300</b></span
+                  ><span><i></i>Wants <b id="home-wants">$180</b></span
+                  ><span><i></i>Savings <b id="home-savings">$120</b></span>
+                </div>
+              </div>
+              <label class="budget-range-label" for="home-income"
+                >Try a monthly income
+                <span id="home-income-value">$600</span></label
+              ><input
+                type="range"
+                id="home-income"
+                min="100"
+                max="2000"
+                step="50"
+                value="600"
+              />
+              <h3>Make every coin count.</h3>
+              <p>
+                A budget that makes room for what you need, what you love, and
+                what’s next.
+              </p>
+              <a class="inline-link" href="#tools"
+                >Find your balance
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" /></svg
+              ></a>
+            </article>
+            <article class="feature-card challenge-feature" data-tilt>
+              <div class="feature-topline">
+                <span>02 / LEVEL UP YOUR HABITS</span
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-bolt" />
+                </svg>
+              </div>
+              <div class="mini-challenge-stage">
+                <button
+                  class="mini-challenge"
+                  id="home-challenge"
+                  aria-label="Flip the no-spend day challenge"
+                  aria-pressed="false"
+                >
+                  <span class="mini-challenge-inner"
+                    ><span class="mini-challenge-front" aria-hidden="false"
+                      ><span class="mini-card-header"
+                        >THE DAILY MOVE <span>↗</span></span
+                      ><span class="mini-bolt"
+                        ><svg class="icon" aria-hidden="true">
+                          <use href="#i-bolt" /></svg></span
+                      ><strong>The no-spend<br />day.</strong
+                      ><span class="mini-card-footer"
+                        >TAP TO FLIP <b>+25 XP</b></span
+                      ></span
+                    ><span class="mini-challenge-back" aria-hidden="true"
+                      ><svg class="icon" aria-hidden="true">
+                        <use href="#i-spark" /></svg
+                      ><strong>One day.<br />Only essentials.</strong
+                      ><span
+                        >Skip optional purchases for a day. Notice what you miss
+                        — and what you don’t.</span
+                      ><b>YOU’VE GOT THIS. ↗</b></span
+                    ></span
+                  ></button
+                ><span class="behind-card behind-one"></span
+                ><span class="behind-card behind-two"></span>
+              </div>
+              <h3>Small moves. Big energy.</h3>
+              <p>
+                Flip a card. Take a challenge. Turn good intentions into habits
+                that stick.
+              </p>
+              <a class="inline-link" href="#challenges"
+                >Make your next move
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" /></svg
+              ></a>
+            </article>
+            <article class="feature-card grow-feature" data-tilt>
+              <div class="feature-topline">
+                <span>03 / PLAY THE LONG GAME</span
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-trend" />
+                </svg>
+              </div>
+              <div class="growth-visual">
+                <span class="growth-note">A LITTLE TODAY.</span
+                ><span class="growth-label">A lot of possibility.</span>
+                <div class="growth-bars" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                  ><span
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#i-trend" /></svg
+                  ></span>
+                </div>
+                <div class="growth-axis">
+                  <span>YOUR FIRST STEP</span><span>FUTURE YOU ↗</span>
+                </div>
+              </div>
+              <h3>Dream it. Plan it. Do it.</h3>
+              <p>
+                From your first savings goal to the basics of investing. Build a
+                future you’re excited about.
+              </p>
+              <a class="inline-link" href="#learn"
+                >Meet your future self
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" /></svg
+              ></a>
+            </article>
+          </div>
+          <p class="budget-caption">
+            The 50/30/20 split above is a starting point, not a rule. Your
+            circumstances come first.
+          </p>
+        </section>
+
+        <section id="how-it-works" class="how-section section wrap">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="short-line"></span> FROM “WHERE DO I START?” TO
+                “I’VE GOT THIS.”
+              </div>
+              <h2>
+                Your next chapter.<br /><span class="text-muted"
+                  >In three little steps.</span
+                >
+              </h2>
+            </div>
+            <a class="button button-outline" href="#dashboard"
+              >Take a look inside
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-up-right" /></svg
+            ></a>
+          </div>
+          <div class="steps-grid">
+            <article>
+              <span class="step-number">01<span>↗</span></span>
+              <h3>Make it yours.</h3>
+              <p>
+                A few quick questions. A plan based on your life, your
+                interests, and your goals.
+              </p>
+            </article>
+            <article>
+              <span class="step-number">02<span>↗</span></span>
+              <h3>Learn a little. Try a little.</h3>
+              <p>
+                Bite-sized lessons and real-world challenges. Because the best
+                way to learn is to do.
+              </p>
+            </article>
+            <article>
+              <span class="step-number">03<span>✳</span></span>
+              <h3>Watch yourself grow.</h3>
+              <p>
+                Track your money, build your confidence, and celebrate the
+                progress you’re making.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="learning-section section wrap">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="short-line"></span> THE LEARNING LAB
+              </div>
+              <h2>
+                Life didn’t come with<br />a money manual.
+                <span class="text-muted">Now it does.</span>
+              </h2>
+            </div>
+            <a class="inline-link" href="#learn"
+              >Explore all lessons
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
+            ></a>
+          </div>
+          <div class="category-grid" id="home-categories"></div>
+        </section>
+
+        <section class="cta-section wrap" id="mission">
+          <span class="cta-asterisk" aria-hidden="true">✳</span>
+          <div>
+            <div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE.</div>
+            <h2>A little smarter today.<br />A little freer tomorrow.</h2>
+            <p>No get-rich-quick promises. Just skills that stay with you.</p>
+            <button class="button" data-auth="register">
+              Let’s make your first move
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-up-right" />
+              </svg>
+            </button>
+          </div>
+          <div class="cta-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
+        </section>
+      </main>
+      <footer class="site-footer wrap">
+        <div class="footer-main">
+          <a class="brand" href="#home"
+            ><span class="brand-mark" aria-hidden="true"
+              ><i></i><i></i><i></i></span
+            >koin<span class="brand-period">.</span></a
+          >
+          <p>Your money. Your moves. Your future.</p>
+          <div>
+            <a href="#learn">Learn</a><a href="#challenges">Challenges</a
+            ><button class="text-button" data-action="about">
+              About this project
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-up-right" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="copyright-year">2026</span> Koin. Made for your next
+            move.</span
+          ><span
+            >An educational prototype. No real money. All real potential.</span
+          >
+        </div>
+      </footer>
+    </div>
+
+    <div id="app-view" hidden>
+      <aside class="sidebar" id="app-sidebar">
+        <a class="brand" href="#home"
+          ><span class="brand-mark" aria-hidden="true"
+            ><i></i><i></i><i></i></span
+          >koin<span class="brand-period">.</span></a
+        ><span class="sidebar-label">YOUR SPACE</span>
+        <nav aria-label="Application navigation">
+          <a href="#dashboard" data-route="dashboard"
+            ><svg class="icon" aria-hidden="true"><use href="#i-grid" /></svg
+            >Overview</a
+          ><a href="#learn" data-route="learn"
+            ><svg class="icon" aria-hidden="true"><use href="#i-book" /></svg
+            >Learning lab</a
+          ><a href="#challenges" data-route="challenges"
+            ><svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg
+            >Challenges <span class="sidebar-new">6</span></a
+          ><a href="#tools" data-route="tools"
+            ><svg class="icon" aria-hidden="true"><use href="#i-calc" /></svg
+            >Money tools</a
+          >
+        </nav>
+        <div class="sidebar-level" id="sidebar-level"></div>
+        <div class="sidebar-bottom">
+          <a href="#home"
+            ><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
+            >Back to the website</a
+          ><button data-action="profile">
+            <svg class="icon" aria-hidden="true"><use href="#i-edit" /></svg
+            >Personalize my space</button
+          ><button data-action="logout">
+            <svg class="icon" aria-hidden="true"><use href="#i-exit" /></svg
+            ><span id="session-action">Leave demo</span>
+          </button>
+        </div>
+        <div class="sidebar-person">
+          <span class="avatar" id="profile-initial">Y</span>
+          <div>
+            <strong id="profile-name">Your next chapter</strong
+            ><span id="profile-mode">Demo explorer</span>
+          </div>
+          <span class="status-dot"></span>
+        </div>
+      </aside>
+      <main class="app-main" id="app-main">
+        <header class="app-topbar">
+          <div>
+            <button
+              class="icon-button"
+              id="app-menu"
+              data-action="app-menu"
+              aria-label="Toggle application navigation"
+              aria-expanded="false"
+            >
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-menu" />
+              </svg></button
+            ><span
+              >Koin <span class="breadcrumb-slash">/</span>
+              <strong id="breadcrumb">Overview</strong></span
+            >
+          </div>
+          <div>
+            <span class="demo-badge"
+              ><span class="status-dot"></span> LEARNING MODE</span
+            ><button
+              class="icon-button"
+              data-action="about"
+              aria-label="About this educational prototype"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>
+            </button>
+          </div>
+        </header>
+        <div class="app-content" id="app-content" tabindex="-1"></div>
+        <footer class="app-footer">
+          <span>A little progress is still progress.</span
+          ><span
+            >Hypothetical money. Practical skills.
+            <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg
+          ></span>
+        </footer>
+      </main>
+    </div>
+
+    <dialog id="modal" aria-labelledby="modal-title">
+      <div class="modal-content" id="modal-content"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="confetti" class="confetti-container" aria-hidden="true"></div>
+    <noscript
+      ><div class="noscript-note">
+        Koin’s interactive lessons and money tools need JavaScript. Please
+        enable it in your browser to explore.
+      </div></noscript
+    >
+  </body>
+</html>
