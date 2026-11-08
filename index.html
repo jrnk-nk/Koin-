@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0A0F0D" />
     <meta
       name="description"
-      content="Meet Koin. Learn to budget, build saving habits, and make your next money move with interactive lessons and challenges."
+      content="Money skills between lectures. Play student money dilemmas, plan your week, and build habits that make room for college life."
     />
     <title>Koin — Your money. Your moves. Your future.</title>
     <link
@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -145,27 +145,22 @@
             ><i></i><i></i><i></i></span
           >koin<span class="brand-period">.</span></a
         >
+        <span class="edition-tag">THE CAMPUS EDITION <span>↗</span></span>
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#why-koin">Why Koin</a
-          ><a href="#how-it-works">How it works</a
-          ><a href="#learn">The learning lab <span class="nav-dot"></span></a>
+          <a href="#why-koin">The game plan</a><a href="#play">Money dilemmas</a
+          ><a href="#learn">Money 101</a>
         </nav>
         <div class="header-actions">
           <button class="text-button login-link" data-auth="login">
-            Log in
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-up-right" />
-            </svg></button
+            Log in</button
           ><button class="button button-small" data-auth="register">
-            Get started
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-arrow" />
-            </svg></button
+            Get started <span aria-hidden="true">↗</span></button
           ><button
             class="icon-button mobile-menu-button"
             data-action="menu"
-            aria-label="Open navigation"
+            aria-controls="mobile-nav"
             aria-expanded="false"
+            aria-label="Open navigation"
           >
             <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
           </button>
@@ -176,430 +171,296 @@
           aria-label="Mobile navigation"
           hidden
         >
-          <a href="#why-koin">Why Koin</a
-          ><a href="#how-it-works">How it works</a
-          ><a href="#learn">The learning lab</a
-          ><button data-auth="login">Log in to Koin</button>
+          <a href="#why-koin">The game plan</a><a href="#play">Money dilemmas</a
+          ><a href="#learn">Money 101</a
+          ><button data-auth="login">Log in</button>
         </nav>
       </header>
-
-      <main id="main">
-        <section class="hero wrap" aria-labelledby="hero-title">
-          <div class="hero-copy">
+      <main id="main" tabindex="-1">
+        <section class="campus-hero wrap" aria-labelledby="hero-title">
+          <div class="campus-hero-copy">
             <div class="eyebrow">
-              <span class="status-dot"></span> A LITTLE KNOW-HOW. A LOT OF
-              POSSIBILITY.
+              <span class="status-dot"></span> LIFE SKILLS. ZERO EXTRA CREDITS.
             </div>
             <h1 id="hero-title">
-              Your money.<br />Your moves.<br />Your
-              <span class="future-word"
-                >future.<svg viewBox="0 0 320 20" aria-hidden="true">
-                  <path
-                    d="M3 14C94-2 219-1 313 8M36 18c76-10 185-12 243-5"
-                  /></svg
-              ></span>
+              BIG PLANS.<br />STUDENT<br /><span>BUDGET.</span
+              ><svg
+                class="hero-scribble"
+                viewBox="0 0 400 28"
+                aria-hidden="true"
+              >
+                <path d="M3 13Q180-5 394 9M37 24Q220 9 371 19" />
+              </svg>
             </h1>
             <p class="hero-description">
-              Take control of your money, build smarter habits, and make
-              financial decisions that actually make sense for you.
+              Make rent. Make plans. Make your money last.<br />The financial
+              side of college, figured out one real-life decision at a time.
             </p>
             <div class="hero-actions">
               <button class="button" data-auth="register">
-                Start Your Journey
+                Find my footing
                 <svg class="icon" aria-hidden="true">
                   <use href="#i-up-right" />
                 </svg></button
-              ><a class="button button-outline" href="#dashboard"
-                >Explore Koin
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" /></svg
-              ></a>
+              ><a class="play-link" href="#play"
+                ><span class="play-circle" aria-hidden="true">▶</span> Play
+                before you sign up</a
+              >
             </div>
-            <div class="hero-footnote">
-              <span class="mini-icons"
-                ><span
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-bolt" /></svg></span
-                ><span
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-leaf" /></svg></span
-                ><span
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-target" /></svg></span
-              ></span>
-              <p>
-                Real-life skills.<br /><strong
-                  >Way more interesting than a textbook.</strong
-                >
-              </p>
+            <div class="hero-proof">
+              <span>5-minute lessons</span><i></i><span>No bank linking</span
+              ><i></i><span>Room to mess up</span>
             </div>
           </div>
-
-          <div
-            class="hero-scene"
-            aria-label="Illustrative Koin dashboard with a balance of 1,245 dollars and a savings goal at 70 percent"
-          >
-            <div class="scene-glow" aria-hidden="true"></div>
-            <div class="orbit orbit-one" aria-hidden="true"></div>
-            <div class="orbit orbit-two" aria-hidden="true"></div>
-            <div class="orbit orbit-three" aria-hidden="true"></div>
-            <span class="scene-star star-one" aria-hidden="true">✦</span
-            ><span class="scene-star star-two" aria-hidden="true">✦</span
-            ><span class="scene-dot dot-one" aria-hidden="true"></span
-            ><span class="scene-dot dot-two" aria-hidden="true"></span>
-            <div class="hero-coin" aria-hidden="true">
-              <div class="coin-rim">
-                <span class="brand-mark coin-k"><i></i><i></i><i></i></span>
-              </div>
+          <div class="receipt-stage">
+            <div class="receipt-grid" aria-hidden="true"></div>
+            <span class="scene-handwriting" aria-hidden="true"
+              >the syllabus<br />left this out. <span>↘</span></span
+            >
+            <div class="student-card-back" aria-hidden="true">
+              <span>KOIN UNIVERSITY</span
+              ><strong>LIFE<br />AFTER<br />LECTURES.</strong
+              ><span>ALL MAJORS WELCOME / NO GPA REQUIRED</span>
             </div>
-            <div class="income-float float-card">
-              <div class="income-icon">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" />
-                </svg>
+            <article
+              class="receipt-card"
+              aria-label="Interactive sample weekly budget"
+              data-tilt
+            >
+              <div class="receipt-heading">
+                <span>koin.</span
+                ><span>RECEIPT NO. 001<br />ONE VERY REAL WEEK</span>
               </div>
-              <div>
-                <span>Small wins add up</span
-                ><strong>Future you says thanks.</strong>
+              <h2>A WEEK IN<br />YOUR WALLET.</h2>
+              <div class="receipt-rule"></div>
+              <div class="receipt-line">
+                <span>Weekly budget</span><b>$180.00</b>
               </div>
-              <span class="tiny-check"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#i-check" /></svg
-              ></span>
-            </div>
-            <div class="wallet-depth" aria-hidden="true"></div>
-            <div class="hero-wallet" data-hero-tilt>
-              <div class="wallet-top">
-                <span class="wallet-logo">koin<span>®</span></span
-                ><span class="wallet-label"
-                  >YOUR MONEY, IN MOTION <span class="status-dot"></span
-                ></span>
+              <div class="receipt-line">
+                <span>Groceries that aren’t noodles</span><b>−$48.00</b>
               </div>
-              <div class="wallet-balance">
-                <span
-                  >Available balance
-                  <svg class="icon" aria-hidden="true">
-                    <use href="#i-eye" /></svg></span
-                ><strong>$1,245<span>.00</span></strong
-                ><small><span>↗</span> Looking good. Keep going.</small>
+              <div class="receipt-line">
+                <span>Getting to class</span><b>−$20.00</b>
               </div>
-              <svg
-                class="wallet-chart"
-                viewBox="0 0 400 90"
-                preserveAspectRatio="none"
-                aria-hidden="true"
+              <div class="receipt-line">
+                <span>Phone bill (your share)</span><b>−$12.00</b>
+              </div>
+              <div class="receipt-line coffee-line" id="receipt-coffee" hidden>
+                <span>One very necessary coffee</span><b>−$6.00</b>
+              </div>
+              <div class="receipt-total">
+                <span>ROOM FOR LIFE</span
+                ><strong id="receipt-room">$100<span>.00</span></strong>
+              </div>
+              <button
+                class="receipt-button"
+                data-action="coffee-preview"
+                aria-pressed="false"
               >
-                <defs>
-                  <linearGradient id="hero-fill" x1="0" x2="0" y1="0" y2="1">
-                    <stop stop-color="#b7ff5a" stop-opacity=".18" />
-                    <stop offset="1" stop-color="#b7ff5a" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <path class="chart-grid" d="M0 25h400M0 55h400M0 85h400" />
-                <path
-                  d="M0 72 25 68 51 74 78 52 105 57 132 36 158 43 185 26 210 35 239 18 264 26 291 12 316 19 344 6 370 14 400 1V90H0Z"
-                  fill="url(#hero-fill)"
-                />
-                <path
-                  d="M0 72 25 68 51 74 78 52 105 57 132 36 158 43 185 26 210 35 239 18 264 26 291 12 316 19 344 6 370 14 400 1"
-                  fill="none"
-                  stroke="#b7ff5a"
-                  stroke-width="2.2"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <div class="wallet-bottom">
-                <span
-                  ><i class="little-dot"></i> Make room for what matters.</span
-                ><span>DEMO OVERVIEW</span>
-              </div>
-            </div>
-            <div class="goal-float float-card">
-              <div class="goal-float-top">
-                <span class="square-icon"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-target" /></svg></span
-                ><span class="small-label">THE NEXT BIG THING</span
-                ><svg class="icon muted" aria-hidden="true">
-                  <use href="#i-up-right" />
-                </svg>
-              </div>
-              <strong>New laptop fund</strong>
-              <div class="goal-float-values">
-                <span>$350 <small>/ $500</small></span
-                ><span>70%</span>
-              </div>
-              <div class="progress-track"><span style="width: 70%"></span></div>
-              <span class="goal-float-caption"
-                >A little closer, every day.</span
-              >
-            </div>
-            <a class="challenge-float" href="#challenges"
-              ><span class="challenge-float-icon"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#i-bolt" /></svg
-              ></span>
-              <div>
-                <small>YOUR NEXT MOVE</small><strong>Try a no-spend day</strong>
-              </div>
-              <span class="xp-tag">+25 XP</span
+                + One more coffee? <span>$6</span>
+              </button>
+              <p id="receipt-feedback" aria-live="polite">
+                Tap it. See the trade-off. No actual coffee included.
+              </p>
+              <div class="receipt-barcode" aria-hidden="true"></div>
+              <small>FICTIONAL NUMBERS. FAMILIAR SITUATIONS.</small>
+            </article>
+            <a class="hero-sticker" href="#play"
+              ><span>LESS<br />MONEY<br />GUESSING.</span
               ><svg class="icon" aria-hidden="true">
                 <use href="#i-up-right" /></svg
             ></a>
-            <span class="scene-caption"
-              ><span class="status-dot"></span> A PREVIEW OF YOUR
-              POSSIBILITIES</span
-            >
+            <div class="scene-note">
+              <span class="status-dot"></span> YOUR MONEY IS A TOOL. LEARN HOW
+              TO USE IT.
+            </div>
           </div>
         </section>
 
-        <section class="value-strip wrap" aria-label="The Koin approach">
-          <p>Less money stress.<br /><strong>More life skills.</strong></p>
+        <div class="campus-ticker" aria-label="Built around student life">
           <div>
-            <svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg
-            ><span>Made for <strong>real life</strong></span>
+            <span>RENT</span><i>✳</i><span>RAMEN</span><i>✳</i
+            ><span>WEEKENDS</span><i>✳</i><span>SIDE GIGS</span><i>✳</i
+            ><span>BIG PLANS</span><i>✳</i><span>SMALL WINS</span><i>✳</i>
           </div>
-          <div>
-            <svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg
-            ><span>Learn by <strong>actually doing</strong></span>
-          </div>
-          <div>
-            <svg class="icon" aria-hidden="true"><use href="#i-leaf" /></svg
-            ><span>Your pace. <strong>Your path.</strong></span>
-          </div>
-          <span class="strip-spark" aria-hidden="true">✳</span>
-        </section>
+        </div>
 
         <section id="why-koin" class="section wrap">
           <div class="section-heading">
             <div>
-              <div class="eyebrow">
-                <span class="short-line"></span> MONEY SKILLS. LIFE UPGRADED.
-              </div>
-              <h2>
-                Good with money.<br /><span class="text-muted"
-                  >Better at life.</span
-                >
-              </h2>
+              <span class="eyebrow">01 / THINGS THEY DON’T TEACH IN CLASS</span>
+              <h2>YOUR LIFE HAS PLANS.<br />GIVE YOUR MONEY SOME.</h2>
             </div>
             <p>
-              You don’t need to have it all figured out.<br />Just a place to
-              start, a plan that fits, and<br class="desktop-break" />
-              a few smart moves along the way.
+              “Just spend less” isn’t much of a plan.<br />Work out what matters
+              to you, what it costs,<br />and how to make room for it.
             </p>
           </div>
-          <div class="feature-grid">
-            <article class="feature-card budget-feature" data-tilt>
-              <div class="feature-topline">
-                <span>01 / FIND YOUR BALANCE</span
+          <div class="campus-features">
+            <a class="campus-feature planner-feature" href="#dashboard"
+              ><div class="feature-index">
+                <span>01 / THE WEEKLY PLAN</span
                 ><svg class="icon" aria-hidden="true">
-                  <use href="#i-wallet" />
+                  <use href="#i-up-right" />
                 </svg>
               </div>
-              <div class="budget-visual">
-                <div class="budget-donut" id="home-budget-ring">
-                  <div>
-                    <span>YOUR BUDGET</span
-                    ><strong id="home-budget-total">$600</strong
-                    ><small>put to good use</small>
-                  </div>
-                </div>
-                <div class="budget-legend">
-                  <span><i></i>Needs <b id="home-needs">$300</b></span
-                  ><span><i></i>Wants <b id="home-wants">$180</b></span
-                  ><span><i></i>Savings <b id="home-savings">$120</b></span>
-                </div>
-              </div>
-              <label class="budget-range-label" for="home-income"
-                >Try a monthly income
-                <span id="home-income-value">$600</span></label
-              ><input
-                type="range"
-                id="home-income"
-                min="100"
-                max="2000"
-                step="50"
-                value="600"
-              />
-              <h3>Make every coin count.</h3>
+              <h3>CAN I SAY YES<br />TO TONIGHT?</h3>
               <p>
-                A budget that makes room for what you need, what you love, and
-                what’s next.
+                Know what’s left after the non-negotiables.<br />Food and fun
+                deserve a place in the plan.
               </p>
-              <a class="inline-link" href="#tools"
-                >Find your balance
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" /></svg
-              ></a>
-            </article>
-            <article class="feature-card challenge-feature" data-tilt>
-              <div class="feature-topline">
-                <span>02 / LEVEL UP YOUR HABITS</span
+              <div class="week-mini" aria-hidden="true">
+                <span>YOUR WEEK, AT A GLANCE</span>
+                <div>
+                  <i>M</i><i>T</i><i>W</i><i>T</i
+                  ><i class="today">F<span>↗</span></i
+                  ><i>S</i><i>S</i>
+                </div>
+                <strong>Plans? You’ve got room.</strong>
+              </div>
+              <span class="feature-bottom"
+                >See my money plan <span>→</span></span
+              ></a
+            >
+            <a class="campus-feature quests-feature" href="#challenges"
+              ><div class="feature-index">
+                <span>02 / SIDE QUESTS</span
                 ><svg class="icon" aria-hidden="true">
-                  <use href="#i-bolt" />
+                  <use href="#i-up-right" />
                 </svg>
               </div>
-              <div class="mini-challenge-stage">
-                <button
-                  class="mini-challenge"
-                  id="home-challenge"
-                  aria-label="Flip the no-spend day challenge"
-                  aria-pressed="false"
+              <div class="quest-art" aria-hidden="true">
+                <span class="quest-paper behind">+ XP</span
+                ><span class="quest-paper"
+                  ><small>SIDE QUEST 003</small
+                  ><svg class="icon"><use href="#i-bolt" /></svg
+                  ><strong>THE $0<br />HANGOUT.</strong
+                  ><b>GOOD COMPANY. ZERO SPEND.</b></span
                 >
-                  <span class="mini-challenge-inner"
-                    ><span class="mini-challenge-front" aria-hidden="false"
-                      ><span class="mini-card-header"
-                        >THE DAILY MOVE <span>↗</span></span
-                      ><span class="mini-bolt"
-                        ><svg class="icon" aria-hidden="true">
-                          <use href="#i-bolt" /></svg></span
-                      ><strong>The no-spend<br />day.</strong
-                      ><span class="mini-card-footer"
-                        >TAP TO FLIP <b>+25 XP</b></span
-                      ></span
-                    ><span class="mini-challenge-back" aria-hidden="true"
-                      ><svg class="icon" aria-hidden="true">
-                        <use href="#i-spark" /></svg
-                      ><strong>One day.<br />Only essentials.</strong
-                      ><span
-                        >Skip optional purchases for a day. Notice what you miss
-                        — and what you don’t.</span
-                      ><b>YOU’VE GOT THIS. ↗</b></span
-                    ></span
-                  ></button
-                ><span class="behind-card behind-one"></span
-                ><span class="behind-card behind-two"></span>
               </div>
-              <h3>Small moves. Big energy.</h3>
+              <h3>GOOD HABITS.<br />LESS HOMEWORK.</h3>
               <p>
-                Flip a card. Take a challenge. Turn good intentions into habits
-                that stick.
+                Small challenges you can actually try this week. Finish one. Get
+                the XP. Keep the habit.
               </p>
-              <a class="inline-link" href="#challenges"
-                >Make your next move
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" /></svg
-              ></a>
-            </article>
-            <article class="feature-card grow-feature" data-tilt>
-              <div class="feature-topline">
-                <span>03 / PLAY THE LONG GAME</span
+              <span class="feature-bottom"
+                >Pick a side quest <span>→</span></span
+              ></a
+            >
+            <a class="campus-feature lab-feature" href="#learn"
+              ><div class="feature-index">
+                <span>03 / THE CRASH COURSE</span
                 ><svg class="icon" aria-hidden="true">
-                  <use href="#i-trend" />
+                  <use href="#i-up-right" />
                 </svg>
               </div>
-              <div class="growth-visual">
-                <span class="growth-note">A LITTLE TODAY.</span
-                ><span class="growth-label">A lot of possibility.</span>
-                <div class="growth-bars" aria-hidden="true">
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i
-                  ><span
-                    ><svg class="icon" aria-hidden="true">
-                      <use href="#i-trend" /></svg
-                  ></span>
-                </div>
-                <div class="growth-axis">
-                  <span>YOUR FIRST STEP</span><span>FUTURE YOU ↗</span>
-                </div>
+              <div class="lab-art" aria-hidden="true">
+                <span>Money</span><b>101</b
+                ><i>required for life.<br />not for your GPA.</i>
               </div>
-              <h3>Dream it. Plan it. Do it.</h3>
+              <h3>KNOW WHAT<br />YOU’RE SAYING YES TO.</h3>
               <p>
-                From your first savings goal to the basics of investing. Build a
-                future you’re excited about.
+                Interest, credit, investing. The useful bits, in plain language,
+                with a quick check at the end.
               </p>
-              <a class="inline-link" href="#learn"
-                >Meet your future self
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" /></svg
-              ></a>
-            </article>
+              <span class="feature-bottom"
+                >Get the useful bits <span>→</span></span
+              ></a
+            >
           </div>
-          <p class="budget-caption">
-            The 50/30/20 split above is a starting point, not a rule. Your
-            circumstances come first.
-          </p>
         </section>
 
-        <section id="how-it-works" class="how-section section wrap">
-          <div class="section-heading">
+        <section class="home-playground" id="how-it-works">
+          <div class="wrap home-playground-grid">
             <div>
-              <div class="eyebrow">
-                <span class="short-line"></span> FROM “WHERE DO I START?” TO
-                “I’VE GOT THIS.”
-              </div>
+              <span class="eyebrow">02 / A 30-SECOND REALITY CHECK</span>
               <h2>
-                Your next chapter.<br /><span class="text-muted"
-                  >In three little steps.</span
-                >
+                THE GROUP CHAT<br />HAS PLANS.<br /><span>YOU HAVE $80.</span>
               </h2>
+              <p>
+                Essentials are covered. Payday is a week away.<br />Your friends
+                want a night out. What’s your move?
+              </p>
+              <div class="handwritten-arrow" aria-hidden="true">
+                no perfect answers.<br />just better questions. ↗
+              </div>
             </div>
-            <a class="button button-outline" href="#dashboard"
-              >Take a look inside
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-up-right" /></svg
-            ></a>
-          </div>
-          <div class="steps-grid">
-            <article>
-              <span class="step-number">01<span>↗</span></span>
-              <h3>Make it yours.</h3>
-              <p>
-                A few quick questions. A plan based on your life, your
-                interests, and your goals.
-              </p>
-            </article>
-            <article>
-              <span class="step-number">02<span>↗</span></span>
-              <h3>Learn a little. Try a little.</h3>
-              <p>
-                Bite-sized lessons and real-world challenges. Because the best
-                way to learn is to do.
-              </p>
-            </article>
-            <article>
-              <span class="step-number">03<span>✳</span></span>
-              <h3>Watch yourself grow.</h3>
-              <p>
-                Track your money, build your confidence, and celebrate the
-                progress you’re making.
-              </p>
-            </article>
+            <div class="home-decision">
+              <div class="decision-top">
+                <span
+                  ><i class="status-dot"></i> GROUP CHAT / FRIDAY, 8:42 PM</span
+                ><span>01 / 06</span>
+              </div>
+              <div class="chat-bubble">
+                <span class="chat-avatar">J</span>
+                <div>
+                  <b>Jules</b>
+                  <p>everyone’s going. you in? 👀</p>
+                </div>
+              </div>
+              <div class="home-choice-buttons">
+                <button data-preview-choice="0">
+                  <span>A</span>Go all in <b>$65 ↗</b></button
+                ><button data-preview-choice="1">
+                  <span>B</span>Go, with a limit <b>$30 ↗</b></button
+                ><button data-preview-choice="2">
+                  <span>C</span>Host a movie night <b>$12 ↗</b>
+                </button>
+              </div>
+              <div
+                class="home-decision-feedback"
+                id="home-decision-feedback"
+                aria-live="polite"
+              >
+                Pick a move. See what it means for the rest of your week.
+              </div>
+              <a class="inline-link" href="#play"
+                >Play the other situations
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" /></svg
+              ></a>
+            </div>
           </div>
         </section>
 
-        <section class="learning-section section wrap">
+        <section class="section wrap campus-learning">
           <div class="section-heading">
             <div>
-              <div class="eyebrow">
-                <span class="short-line"></span> THE LEARNING LAB
-              </div>
-              <h2>
-                Life didn’t come with<br />a money manual.
-                <span class="text-muted">Now it does.</span>
-              </h2>
+              <span class="eyebrow">03 / THE CRASH COURSE</span>
+              <h2>LESS “WHAT’S APR?”<br />MORE “I GET IT.”</h2>
             </div>
             <a class="inline-link" href="#learn"
-              >Explore all lessons
+              >Find your first lesson
               <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
             ></a>
           </div>
           <div class="category-grid" id="home-categories"></div>
         </section>
 
-        <section class="cta-section wrap" id="mission">
-          <span class="cta-asterisk" aria-hidden="true">✳</span>
-          <div>
-            <div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE.</div>
-            <h2>A little smarter today.<br />A little freer tomorrow.</h2>
-            <p>No get-rich-quick promises. Just skills that stay with you.</p>
+        <section class="campus-photo-section wrap" id="mission">
+          <div class="campus-photo">
+            <img
+              src="assets/campus.jpg"
+              alt="Students sharing a laugh while studying together in a library"
+              width="1400"
+              height="933"
+              loading="lazy"
+            /><span>FOR THE LIFE<br />BETWEEN LECTURES.</span>
+          </div>
+          <div class="campus-manifesto">
+            <span class="eyebrow">NO FINANCE DEGREE REQUIRED</span>
+            <h2>YOU DON’T HAVE TO<br />HAVE IT ALL<br />FIGURED OUT.</h2>
+            <p>
+              Start with the next bill. The next decision. The first thing you
+              want to save for. Koin gives you somewhere to work it out.
+            </p>
             <button class="button" data-auth="register">
-              Let’s make your first move
+              Okay, let’s figure it out
               <svg class="icon" aria-hidden="true">
                 <use href="#i-up-right" />
-              </svg>
-            </button>
+              </svg></button
+            ><small>No get-rich promises. Just a little more control.</small>
           </div>
-          <div class="cta-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
         </section>
       </main>
       <footer class="site-footer wrap">
@@ -611,22 +472,18 @@
           >
           <p>Your money. Your moves. Your future.</p>
           <div>
-            <a href="#learn">Learn</a><a href="#challenges">Challenges</a
+            <a href="#play">Play</a><a href="#learn">Learn</a
+            ><a href="#challenges">Try</a
             ><button class="text-button" data-action="about">
-              About this project
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-up-right" />
-              </svg>
+              About Koin ↗
             </button>
           </div>
         </div>
         <div class="footer-bottom">
           <span
-            >© <span id="copyright-year">2026</span> Koin. Made for your next
-            move.</span
-          ><span
-            >An educational prototype. No real money. All real potential.</span
-          >
+            >© <span id="copyright-year">2026</span> Koin / The campus
+            edition.</span
+          ><span>Made for learning. Bring your curiosity.</span>
         </div>
       </footer>
     </div>
@@ -639,15 +496,19 @@
           >koin<span class="brand-period">.</span></a
         ><span class="sidebar-label">YOUR SPACE</span>
         <nav aria-label="Application navigation">
+          <a href="#play" data-route="play"
+            ><svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg
+            >Money dilemmas <span class="nav-new">PLAY</span></a
+          >
           <a href="#dashboard" data-route="dashboard"
-            ><svg class="icon" aria-hidden="true"><use href="#i-grid" /></svg
-            >Overview</a
+            ><svg class="icon" aria-hidden="true"><use href="#i-grid" /></svg>My
+            week</a
           ><a href="#learn" data-route="learn"
             ><svg class="icon" aria-hidden="true"><use href="#i-book" /></svg
-            >Learning lab</a
+            >Money 101</a
           ><a href="#challenges" data-route="challenges"
             ><svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg
-            >Challenges <span class="sidebar-new">6</span></a
+            >Side quests <span class="sidebar-new">6</span></a
           ><a href="#tools" data-route="tools"
             ><svg class="icon" aria-hidden="true"><use href="#i-calc" /></svg
             >Money tools</a
@@ -707,9 +568,9 @@
         </header>
         <div class="app-content" id="app-content" tabindex="-1"></div>
         <footer class="app-footer">
-          <span>A little progress is still progress.</span
+          <span>THE CAMPUS EDITION / EVERY MAJOR WELCOME.</span
           ><span
-            >Hypothetical money. Practical skills.
+            >Your pace. Your plans.
             <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg
           ></span>
         </footer>

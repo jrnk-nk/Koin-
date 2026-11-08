@@ -167,7 +167,7 @@ const TRACKS = [
 const LESSONS = [
   {
     id: "saving",
-    title: "Give your savings a purpose.",
+    title: "The emergency fund before the emergency.",
     minutes: 4,
     description:
       "Small goals, safety nets, and a saving habit that works in real life.",
@@ -182,7 +182,7 @@ const LESSONS = [
   },
   {
     id: "budgeting",
-    title: "Your money needs a game plan.",
+    title: "Rent first. The rest needs a plan.",
     minutes: 5,
     description:
       "Meet a flexible framework for needs, wants, and future-you money.",
@@ -202,7 +202,7 @@ const LESSONS = [
   },
   {
     id: "spending",
-    title: "Spend with a little more intention.",
+    title: "The group chat is not your budget.",
     minutes: 3,
     description:
       "Tell needs from wants, spot the hidden costs, and pause the impulse.",
@@ -217,7 +217,7 @@ const LESSONS = [
   },
   {
     id: "earning",
-    title: "Your skills have possibilities.",
+    title: "Your first gig. Your actual profit.",
     minutes: 4,
     description:
       "Explore realistic earning ideas, fair pricing, and the costs behind income.",
@@ -233,7 +233,7 @@ const LESSONS = [
   },
   {
     id: "investing",
-    title: "Get to know the long game.",
+    title: "Investing without the internet hype.",
     minutes: 5,
     description:
       "Risk, diversification, and compounding — without the get-rich-quick noise.",
@@ -252,7 +252,7 @@ const LESSONS = [
   },
   {
     id: "knowledge",
-    title: "The money words that matter.",
+    title: "APR, interest, and the fine print.",
     minutes: 4,
     description:
       "Decode interest, inflation, credit, and the fine print in everyday money.",
@@ -272,17 +272,17 @@ const CHALLENGES = [
   {
     id: "save-ten",
     category: "saving",
-    title: "Pay future you first.",
+    title: "The first $10 buffer.",
     difficulty: "Easy",
     xp: 25,
     instruction:
-      "Set aside 10% of your next allowance or income payment, if your essentials are covered. Choose a specific purpose for that money.",
+      "Pick a first emergency-buffer target, even $10. Work out a contribution from your next payment that leaves essential costs covered, then record it in your savings plan.",
     tip: "If 10% is too much, choose a smaller realistic amount. The habit matters more than the percentage.",
   },
   {
     id: "make-budget",
     category: "budgeting",
-    title: "Give every coin a job.",
+    title: "Rent. Food. Then what?",
     difficulty: "Medium",
     xp: 35,
     instruction:
@@ -292,17 +292,17 @@ const CHALLENGES = [
   {
     id: "no-spend",
     category: "spending",
-    title: "The no-spend day.",
+    title: "The $0 hangout.",
     difficulty: "Easy",
     xp: 25,
     instruction:
-      "Choose one day to skip optional purchases. Keep essential spending like transport and food. At the end, write down one thing you noticed.",
+      "Plan a hangout that costs nothing extra: a walk, a study break, or a game you already own. Keep essential spending. Afterwards, note what made it worth your time.",
     tip: "This is about noticing habits. Never skip essentials or feel guilty about necessary spending.",
   },
   {
     id: "skill-map",
     category: "earning",
-    title: "Find your earning edge.",
+    title: "Make your first gig plan.",
     difficulty: "Medium",
     xp: 40,
     instruction:
@@ -312,7 +312,7 @@ const CHALLENGES = [
   {
     id: "risk-check",
     category: "investing",
-    title: "Think like a long-gamer.",
+    title: "Fact-check the finance feed.",
     difficulty: "Medium",
     xp: 35,
     instruction:
@@ -322,14 +322,264 @@ const CHALLENGES = [
   {
     id: "fine-print",
     category: "knowledge",
-    title: "Read between the fees.",
+    title: "The subscription sweep.",
     difficulty: "Easy",
     xp: 30,
     instruction:
-      "Choose a fictional subscription or credit offer. Write down its monthly cost, annual total, cancellation terms, and any extra fees you would want to check.",
+      "Review one fictional or real subscription. Calculate its yearly cost, check the renewal date, and decide whether you still use it. Never share account or payment details here.",
     tip: "Try an $8 monthly subscription: the base yearly cost is $96. What else might affect the total?",
   },
 ];
+
+// Every dilemma is independent. Practice choices never change the real ledger.
+const DILEMMAS = [
+  {
+    id: "night-out",
+    label: "The group chat",
+    title: "Everyone’s going. You in?",
+    tag: "SOCIAL LIFE",
+    budget: 80,
+    context:
+      "Essentials are covered, but payday is seven days away. Your friends are planning a night out. How much of your remaining $80 are you comfortable using?",
+    lesson: "spending",
+    options: [
+      {
+        title: "Go all in",
+        detail: "Dinner, tickets, and a ride home.",
+        cost: 65,
+        headline: "Fun tonight. A tight rest of the week.",
+        feedback:
+          "You have $15 left for seven days. If that covers everything else you planned, this can be a deliberate choice. If it doesn’t, choose a smaller night out before the money is gone.",
+      },
+      {
+        title: "Join, with a $30 limit",
+        detail: "Eat first. Pick the part you care about.",
+        cost: 30,
+        headline: "Same friends. A limit you chose.",
+        feedback:
+          "You keep $50 for the rest of the week. Decide what the $30 includes—especially getting home—and tell your friends the plan before you go.",
+      },
+      {
+        title: "Host a movie night",
+        detail: "Snacks, a shared screen, no cover charge.",
+        cost: 12,
+        headline: "A cheaper plan can still be a good plan.",
+        feedback:
+          "You keep $68. Suggest something specific so the alternative feels like a plan, not a cancellation. Social time has value; it doesn’t need the same price tag every week.",
+      },
+    ],
+  },
+  {
+    id: "textbook",
+    label: "The textbook problem",
+    title: "$90 for a book. For one class.",
+    tag: "CAMPUS COSTS",
+    budget: 120,
+    context:
+      "The reading list includes a textbook costing $90 new. You have $120 available after essentials. You need the reading, but do you need a new copy?",
+    lesson: "budgeting",
+    options: [
+      {
+        title: "Buy the new copy",
+        detail: "Available now, with the current edition.",
+        cost: 90,
+        headline: "Convenient, with $30 left over.",
+        feedback:
+          "A new copy might be necessary if the class needs a one-time access code. Check that requirement first. You are paying for certainty and convenience, so compare that value with your other costs.",
+      },
+      {
+        title: "Find a used copy",
+        detail: "Same required edition. Half the price.",
+        cost: 45,
+        headline: "The pages don’t have to be new.",
+        feedback:
+          "You keep $75. Confirm the edition and whether any digital access code is included. A cheap book that misses required course materials can become an expensive mistake.",
+      },
+      {
+        title: "Use the library copy",
+        detail: "Available on a three-hour reserve.",
+        cost: 0,
+        headline: "Free in money. Not free in planning.",
+        feedback:
+          "You keep $120 but need to schedule library time. Check availability before a deadline. The best option depends on your timetable, not just the price.",
+      },
+    ],
+  },
+  {
+    id: "pay-later",
+    label: "Four little payments",
+    title: "“Only $20 today.” Sound familiar?",
+    tag: "CREDIT & FOMO",
+    budget: 100,
+    context:
+      "An $80 pair of shoes is advertised as four $20 payments. Your current shoes work. Your available $100 also needs to cover next week’s plans.",
+    lesson: "knowledge",
+    options: [
+      {
+        title: "Take the four payments",
+        detail: "$20 today; $60 still committed.",
+        cost: 20,
+        headline: "A smaller payment is not a smaller price.",
+        feedback:
+          "You have $80 in cash now but owe another $60. That leaves only $20 uncommitted. Check fees, dates, and affordability across all four payments before agreeing.",
+      },
+      {
+        title: "Pay the full $80 now",
+        detail: "No future payments. Less room this week.",
+        cost: 80,
+        headline: "Clear cost. Real trade-off.",
+        feedback:
+          "You have $20 left and no payment plan to track. Knowing the full cost is useful, but affordability still matters. Your current shoes work, so waiting is another valid option.",
+      },
+      {
+        title: "Wait 48 hours",
+        detail: "Save the link. Revisit after the impulse.",
+        cost: 0,
+        headline: "Wanting it isn’t a deadline.",
+        feedback:
+          "You keep $100 available and can decide again later. Waiting creates time to compare prices and see whether you still want the purchase. You haven’t lost the option.",
+      },
+    ],
+  },
+  {
+    id: "first-gig",
+    label: "Your first paid gig",
+    title: "A friend needs a poster. You need a price.",
+    tag: "SIDE INCOME",
+    budget: 40,
+    context:
+      "A design job pays $40. You estimate two hours of work and $5 of direct costs. The client hasn’t said how many revisions they expect.",
+    lesson: "earning",
+    options: [
+      {
+        title: "Accept unlimited revisions",
+        detail: "Two hours could become six.",
+        cost: 5,
+        headline: "The scope matters as much as the price.",
+        feedback:
+          "Your $35 after direct costs is $17.50 per hour for two hours, but about $5.83 per hour for six. Agree on deliverables, timing, and revisions before starting. Tax may still apply.",
+      },
+      {
+        title: "Agree on one revision first",
+        detail: "Write down the work and payment terms.",
+        cost: 5,
+        headline: "A boundary is part of the job.",
+        feedback:
+          "You have $35 after direct costs, before tax. A simple written agreement makes the time estimate more useful. Include what counts as extra work and when payment is due.",
+      },
+      {
+        title: "Decline this week",
+        detail: "Exams are close; time is already tight.",
+        cost: 0,
+        headline: "You’re allowed to value your time.",
+        feedback:
+          "You choose not to earn this $40, and avoid the $5 cost. This round’s $40 was a potential fee, not income already received. Rest, study, and existing commitments are part of the decision too.",
+      },
+    ],
+  },
+  {
+    id: "trial",
+    label: "The free trial",
+    title: "Free for a month. Then what?",
+    tag: "SUBSCRIPTIONS",
+    budget: 50,
+    context:
+      "A study app offers a free month, then charges $12 each month. A card is required. You have $50 allocated to optional spending.",
+    lesson: "spending",
+    options: [
+      {
+        title: "Start it and deal with it later",
+        detail: "No reminder. Automatic renewal.",
+        cost: 0,
+        headline: "Today’s cost is zero. The commitment isn’t.",
+        feedback:
+          "You still have $50 today, but forgetting the renewal costs $12. A full paid year would be $144. Check when charges start and how to cancel before adding payment details.",
+      },
+      {
+        title: "Check terms and set a reminder",
+        detail: "Decide two days before renewal.",
+        cost: 0,
+        headline: "Make the next decision easier to remember.",
+        feedback:
+          "You have a plan to review whether the app helped. Check cancellation steps now, and compare a free alternative. A reminder helps; it doesn’t cancel the subscription for you.",
+      },
+      {
+        title: "Use the free campus alternative",
+        detail: "Your library already offers a similar tool.",
+        cost: 0,
+        headline: "Check what your fees already pay for.",
+        feedback:
+          "You keep $50 and avoid another subscription. Campus libraries often have useful services, though availability varies. Compare whether the included option actually does what you need.",
+      },
+    ],
+  },
+  {
+    id: "invest-now",
+    label: "The “guaranteed” return",
+    title: "Your deposit money has a job already.",
+    tag: "INVESTING",
+    budget: 300,
+    context:
+      "You need $300 for a housing deposit in a month. Someone online says an investment could double it, “basically guaranteed.” What do you do?",
+    lesson: "investing",
+    options: [
+      {
+        title: "Put all $300 into the offer",
+        detail: "The deadline makes the upside tempting.",
+        cost: 300,
+        headline: "A near-term need can’t wait for a recovery.",
+        feedback:
+          "The $300 would leave your available deposit money. Its future value is unknown and could fall to zero. Guaranteed high-return claims are a warning sign. Losing it could affect your housing.",
+      },
+      {
+        title: "Keep the deposit accessible",
+        detail: "Learn about investing with a simulation.",
+        cost: 0,
+        headline: "Protect the money with a deadline.",
+        feedback:
+          "Your $300 remains available for its purpose. Learn investing concepts using hypothetical amounts first. Money needed soon generally calls for access and stability, not speculative risk.",
+      },
+      {
+        title: "Try just $30 of the deposit",
+        detail: "Keep most of it, risk a small part.",
+        cost: 30,
+        headline: "Small relative to the total can still matter.",
+        feedback:
+          "You would have $270 available for a $300 bill. Even a small loss creates a shortfall when every dollar has a near-term job. First find money you can genuinely afford to risk.",
+      },
+    ],
+  },
+];
+
+const CampusMath = {
+  runway(balance, bills, buffer, payday, today = localDate()) {
+    const days = Math.max(
+      0,
+      Math.ceil(
+        (Date.parse(payday + "T00:00:00Z") - Date.parse(today + "T00:00:00Z")) /
+          86400000,
+      ),
+    );
+    const spendable = roundMoney(Math.max(0, balance - bills - buffer));
+    return {
+      days,
+      spendable,
+      daily: days ? Math.floor((spendable * 100) / days) / 100 : 0,
+      shortfall: roundMoney(Math.max(0, bills + buffer - balance)),
+    };
+  },
+  split(total, people) {
+    const cents = Math.round(total * 100);
+    const low = Math.floor(cents / people);
+    const extra = cents % people;
+    return {
+      low: low / 100,
+      high: (low + (extra ? 1 : 0)) / 100,
+      extra,
+      people,
+    };
+  },
+};
 
 const GOALS = [
   "Saving for a purchase",
@@ -380,6 +630,15 @@ const CATEGORY_ICONS = {
 function newState(isGuest = true) {
   return {
     version: 1,
+    campus: {
+      payday: localDate(14),
+      bills: isGuest ? 300 : 0,
+      buffer: isGuest ? 100 : 0,
+      splitTotal: 42.75,
+      splitPeople: 3,
+      decisions: {},
+      activityDays: [],
+    },
     profile: {
       nickname: "Friend",
       situation: SITUATIONS[0],
@@ -426,7 +685,7 @@ function newState(isGuest = true) {
           },
           {
             id: "sample-4",
-            description: "A few new essentials",
+            description: "Second-hand course books",
             amount: 65,
             category: "Shopping",
             date: localDate(-3),
@@ -434,7 +693,7 @@ function newState(isGuest = true) {
           },
           {
             id: "sample-5",
-            description: "Weekend with friends",
+            description: "Friday with the flatmates",
             amount: 45,
             category: "Entertainment",
             date: localDate(-2),
@@ -442,7 +701,7 @@ function newState(isGuest = true) {
           },
           {
             id: "sample-6",
-            description: "Monthly subscriptions",
+            description: "Music, cloud storage, and that app",
             amount: 45,
             category: "Subscriptions",
             date: localDate(-1),
@@ -522,6 +781,7 @@ class DemoStore {
       profile: { ...initial.profile, ...saved.profile },
       goal: { ...initial.goal, ...saved.goal },
       tools: { ...initial.tools, ...saved.tools },
+      campus: { ...initial.campus, ...(saved.campus || {}) },
     };
     state.transactions = saved.transactions
       .filter(
@@ -588,6 +848,41 @@ class DemoStore {
       if (!Number.isFinite(state.tools[key]))
         state.tools[key] = initial.tools[key];
     });
+    const c = state.campus;
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(c.payday) ||
+      !Number.isFinite(Date.parse(c.payday))
+    )
+      c.payday = initial.campus.payday;
+    for (const key of ["bills", "buffer", "splitTotal"])
+      if (!validAmount(c[key])) c[key] = initial.campus[key];
+    if (
+      !Number.isInteger(c.splitPeople) ||
+      c.splitPeople < 1 ||
+      c.splitPeople > 50
+    )
+      c.splitPeople = 3;
+    c.decisions = Object.fromEntries(
+      Object.entries(
+        c.decisions && typeof c.decisions === "object" ? c.decisions : {},
+      ).filter(
+        ([id, value]) =>
+          DILEMMAS.some((d) => d.id === id) &&
+          value &&
+          Number.isInteger(value.choice) &&
+          value.choice >= 0 &&
+          value.choice < 3,
+      ),
+    );
+    c.activityDays = Array.isArray(c.activityDays)
+      ? [
+          ...new Set(
+            c.activityDays.filter(
+              (d) => typeof d === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d),
+            ),
+          ),
+        ].slice(-180)
+      : [];
     return state;
   }
 }
@@ -641,6 +936,8 @@ class KoinApp {
     this.dataKey = this.user?.email || "guest";
     this.state = this.store.loadState(this.dataKey);
     this.page = "home";
+    this.dilemmaIndex = 0;
+    this.dilemmaChoice = null;
     this.lessonFilter = "all";
     this.challengeFilter = "all";
     this.activityFilter = "all";
@@ -710,18 +1007,6 @@ class KoinApp {
         card.style.setProperty("--tilt-y", "0deg");
       }
     });
-    const scene = $(".hero-scene");
-    scene.addEventListener("pointermove", (event) => {
-      if (reducedMotion() || event.pointerType === "touch") return;
-      const bounds = scene.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      $(".hero-wallet").style.transform =
-        `translateZ(30px) rotateX(${12 - y * 6}deg) rotateY(${-14 + x * 9}deg) rotate(-8deg)`;
-    });
-    scene.addEventListener("pointerleave", () => {
-      $(".hero-wallet").style.transform = "";
-    });
   }
 
   save() {
@@ -752,7 +1037,7 @@ class KoinApp {
   route() {
     const [requested, category] = (location.hash.slice(1) || "home").split("/");
     const section = ["why-koin", "how-it-works", "mission"].includes(requested);
-    const page = ["dashboard", "learn", "challenges", "tools"].includes(
+    const page = ["dashboard", "learn", "challenges", "tools", "play"].includes(
       requested,
     )
       ? requested
@@ -784,9 +1069,10 @@ class KoinApp {
 
   renderPage() {
     const labels = {
-      dashboard: "Overview",
-      learn: "Learning lab",
-      challenges: "Challenges",
+      dashboard: "My week",
+      play: "Money dilemmas",
+      learn: "Money 101",
+      challenges: "Side quests",
       tools: "Money tools",
     };
     $("#breadcrumb").textContent = labels[this.page];
@@ -800,6 +1086,7 @@ class KoinApp {
     this.renderSidebar();
     const renderers = {
       dashboard: () => this.dashboardHTML(),
+      play: () => this.playHTML(),
       learn: () => this.learnHTML(),
       challenges: () => this.challengesHTML(),
       tools: () => this.toolsHTML(),
@@ -809,6 +1096,7 @@ class KoinApp {
     if (this.page === "tools") {
       this.updateBudget();
       this.updateCompound();
+      this.updateBillSplit();
     }
   }
 
@@ -818,7 +1106,8 @@ class KoinApp {
         (sum, id) => sum + (CHALLENGES.find((c) => c.id === id)?.xp || 0),
         0,
       ) +
-      this.state.completedLessons.length * 20
+      this.state.completedLessons.length * 20 +
+      Object.keys(this.state.campus.decisions).length * 15
     );
   }
 
@@ -832,7 +1121,7 @@ class KoinApp {
       "Future focused",
     ];
     $("#sidebar-level").innerHTML =
-      `<div>${icon("spark")}<strong>Level ${level} · ${titles[Math.min(level - 1, 3)]}</strong></div><p>Small steps. Real progress.</p><div class="progress-track" role="progressbar" aria-label="Experience toward next level" aria-valuenow="${xp % 100}" aria-valuemin="0" aria-valuemax="100"><span style="width:${xp % 100}%"></span></div><small>${xp} XP earned · ${100 - (xp % 100)} to next level</small>`;
+      `<div>${icon("spark")}<strong>Level ${level} · ${titles[Math.min(level - 1, 3)]}</strong></div><p>${this.state.campus.activityDays.length} practice days · No streak pressure.</p><div class="progress-track" role="progressbar" aria-label="Experience toward next level" aria-valuenow="${xp % 100}" aria-valuemin="0" aria-valuemax="100"><span style="width:${xp % 100}%"></span></div><small>${xp} XP earned · ${100 - (xp % 100)} to next level</small>`;
     const nickname = this.state.profile.nickname;
     $("#profile-name").textContent =
       this.user || this.state.profile.onboarded
@@ -877,13 +1166,13 @@ class KoinApp {
         `${Math.round(goal.progress)}% of your ${money(this.state.goal.target)} goal`,
       ],
     ];
-    return `<div class="page-intro"><div><span class="page-kicker">YOUR MONEY. YOUR POSSIBILITIES.</span><h1>Looking ahead, <span>${nickname}.</span></h1><p>${this.user ? "Your personal practice space. Make your next move." : "Meet your money playground. All amounts below are fictional demo data."}</p></div><button class="button" data-action="transaction">${icon("plus")} Add transaction</button></div>
+    return `<div class="page-intro"><div><span class="page-kicker">YOUR MONEY, BETWEEN LECTURES.</span><h1>YOUR WEEK, <span>${nickname}.</span></h1><p>${this.user ? "The bills, the plans, and the room in between." : "A sample student budget. Try a few numbers and make it yours."}</p></div><button class="button" data-action="transaction">${icon("plus")} Add transaction</button></div>
       ${totals.balance < 0 ? '<div class="warning-note">Your recorded expenses are higher than your available money. Review your spending and adjust your plan before adding new commitments.</div>' : ""}
-      <div class="summary-grid">${cards.map(([label, amount, symbol, caption]) => `<article class="summary-card" data-tilt><div class="summary-card-top"><span>${label}</span>${icon(symbol)}</div><strong class="${label === "Available balance" && amount < 0 ? "negative" : ""}">${money(amount, 2)}</strong><small>${caption}</small></article>`).join("")}</div>
-      <div class="dashboard-grid"><section class="panel balance-panel"><div class="panel-title"><div><h2>Your money, in motion.</h2><p>Every little move makes a difference.</p></div><button class="text-button" data-action="balance">Edit amounts ${icon("edit")}</button></div><div class="balance-large ${totals.balance < 0 ? "negative" : ""}">${money(totals.balance, 2)}</div><p class="balance-caption">Available balance <span class="muted">· All recorded activity</span></p><p class="balance-formula">${money(this.state.startingBalance, 2)} starting + ${money(totals.income, 2)} income − ${money(totals.expenses, 2)} expenses</p>${this.balanceChart()}</section>
+      ${this.weeklyPlanHTML()}<div class="summary-grid">${cards.map(([label, amount, symbol, caption]) => `<article class="summary-card" data-tilt><div class="summary-card-top"><span>${label}</span>${icon(symbol)}</div><strong class="${label === "Available balance" && amount < 0 ? "negative" : ""}">${money(amount, 2)}</strong><small>${caption}</small></article>`).join("")}</div>
+      <div class="dashboard-grid"><section class="panel balance-panel"><div class="panel-title"><div><h2>The money timeline.</h2><p>Every recorded income and expense, in order.</p></div><button class="text-button" data-action="balance">Edit amounts ${icon("edit")}</button></div><div class="balance-large ${totals.balance < 0 ? "negative" : ""}">${money(totals.balance, 2)}</div><p class="balance-caption">Available balance <span class="muted">· All recorded activity</span></p><p class="balance-formula">${money(this.state.startingBalance, 2)} starting + ${money(totals.income, 2)} income − ${money(totals.expenses, 2)} expenses</p>${this.balanceChart()}</section>
       <section class="panel goal-panel"><div class="panel-title"><h2>A little closer to your goal.</h2><button class="icon-button" data-action="goal" aria-label="Edit savings goal">${icon("edit")}</button></div><div class="goal-icon-row"><span class="square-icon">${icon("target")}</span><span class="xp-tag">${goal.progress >= 100 ? "GOAL REACHED" : "FUTURE YOU FUND"}</span></div><h3 class="goal-name">${escapeHTML(this.state.goal.name)}</h3><div class="goal-total"><strong>${money(this.state.goal.saved, 2)}</strong><span>/ ${money(this.state.goal.target, 2)}</span></div><div class="goal-progress-label"><span>${money(goal.remaining, 2)} to go</span><span>${Math.round(goal.progress)}%</span></div><div class="progress-track" role="progressbar" aria-label="Savings goal progress" aria-valuenow="${Math.round(goal.progress)}" aria-valuemin="0" aria-valuemax="100"><span style="width:${goal.progress}%"></span></div><p class="goal-estimate">${icon(goal.progress >= 100 ? "check" : "clock")}<span>${this.goalEstimate()}</span></p><p class="goal-note">Savings are tracked separately; they are not automatically deducted from your available balance.</p><button class="button button-soft" data-action="goal">Update my goal ${icon("arrow")}</button></section></div>
       ${nextChallenge ? `<section class="next-move"><span class="square-icon">${icon("bolt")}</span><div><small>YOUR NEXT MOVE · +${nextChallenge.xp} XP</small><h3>${nextChallenge.title}</h3><p>${this.state.profile.onboarded ? "Chosen to help you build on your goals. One small step at a time." : "A small challenge today. A smarter habit tomorrow."}</p></div><button class="button button-outline" data-challenge-open="${nextChallenge.id}">Take the challenge ${icon("arrow")}</button></section>` : `<section class="next-move"><span class="square-icon">${icon("check")}</span><div><small>LOOK AT YOU GO</small><h3>Every challenge complete.</h3><p>Keep practising these habits in everyday life. Revisit any challenge whenever you like.</p></div><a class="button button-outline" href="#challenges">See your progress ${icon("arrow")}</a></section>`}
-      <section class="panel activity-panel"><div class="panel-title"><div><h2>The little things add up.</h2><p>Your hypothetical income and expenses.</p></div><div class="activity-controls"><input id="activity-search" type="search" placeholder="Search activity…" aria-label="Search transactions" value="${escapeHTML(this.activitySearch)}"><select id="activity-filter" aria-label="Filter transaction type"><option value="all" ${this.activityFilter === "all" ? "selected" : ""}>All activity</option><option value="income" ${this.activityFilter === "income" ? "selected" : ""}>Income</option><option value="expense" ${this.activityFilter === "expense" ? "selected" : ""}>Expenses</option></select></div></div><div id="transaction-list"></div></section>`;
+      <section class="panel activity-panel"><div class="panel-title"><div><h2>Where it actually went.</h2><p>Your practice ledger. Search, edit, or add a transaction.</p></div><div class="activity-controls"><input id="activity-search" type="search" placeholder="Search activity…" aria-label="Search transactions" value="${escapeHTML(this.activitySearch)}"><select id="activity-filter" aria-label="Filter transaction type"><option value="all" ${this.activityFilter === "all" ? "selected" : ""}>All activity</option><option value="income" ${this.activityFilter === "income" ? "selected" : ""}>Income</option><option value="expense" ${this.activityFilter === "expense" ? "selected" : ""}>Expenses</option></select></div></div><div id="transaction-list"></div></section>`;
   }
 
   balanceChart() {
@@ -947,7 +1236,7 @@ class KoinApp {
       this.lessonFilter === "all"
         ? LESSONS
         : LESSONS.filter((l) => l.id === this.lessonFilter);
-    return `<div class="page-intro"><div><span class="page-kicker">THE LEARNING LAB</span><h1>Know a little. <span>Do a lot.</span></h1><p>Short lessons. Real-life skills. A little more confidence with every chapter.</p></div><span class="period-tag">${completed} / ${LESSONS.length} completed</span></div><section class="learning-banner"><div><span class="page-kicker">FOR THE LIFE YOU WANT TO LIVE</span><h2>Your money manual starts here.</h2><p>Learn the idea. Try the quiz. Earn 20 XP with each lesson.</p><div class="progress-track" role="progressbar" aria-label="Lessons completed" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${LESSONS.length}"><span style="width:${(completed / LESSONS.length) * 100}%"></span></div></div><span class="banner-icon">${icon("book")}</span></section><div class="tabs" role="group" aria-label="Learning categories">${this.filterTabs("lesson", this.lessonFilter)}</div><div class="lessons-grid">${lessons
+    return `<div class="page-intro"><div><span class="page-kicker">MONEY 101</span><h1>THE MONEY STUFF.<br><span>MINUS THE JARGON.</span></h1><p>Credit, rent, savings, side gigs. Get the useful parts in a few minutes.</p></div><span class="period-tag">${completed} / ${LESSONS.length} completed</span></div><section class="learning-banner"><div><span class="page-kicker">FOR THE LIFE YOU WANT TO LIVE</span><h2>The syllabus left this out.</h2><p>Learn the idea. Try the quiz. Earn 20 XP with each lesson.</p><div class="progress-track" role="progressbar" aria-label="Lessons completed" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${LESSONS.length}"><span style="width:${(completed / LESSONS.length) * 100}%"></span></div></div><span class="banner-icon">${icon("book")}</span></section><div class="tabs" role="group" aria-label="Learning categories">${this.filterTabs("lesson", this.lessonFilter)}</div><div class="lessons-grid">${lessons
       .map((lesson) => {
         const track = TRACKS.find((t) => t.id === lesson.id);
         const done = this.state.completedLessons.includes(lesson.id);
@@ -979,7 +1268,7 @@ class KoinApp {
       (c) =>
         this.challengeFilter === "all" || c.category === this.challengeFilter,
     );
-    return `<div class="page-intro"><div><span class="page-kicker">SMALL MOVES. REAL MOMENTUM.</span><h1>Good habits. <span>In the cards.</span></h1><p>Flip a card, try something new, and give future you a little head start.</p></div><span class="period-tag">${completed} / ${CHALLENGES.length} complete</span></div><section class="learning-banner"><div><span class="page-kicker">YOUR PROGRESS, ONE MOVE AT A TIME</span><h2>${completed === CHALLENGES.length ? "Look at all that momentum." : completed ? "You’re building something good." : "Your first small win is waiting."}</h2><p>${completed} challenges complete · ${this.state.completedChallenges.reduce((sum, id) => sum + CHALLENGES.find((c) => c.id === id).xp, 0)} challenge XP earned</p><div class="progress-track" role="progressbar" aria-label="Challenges completed" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${CHALLENGES.length}"><span style="width:${(completed / CHALLENGES.length) * 100}%"></span></div></div><span class="banner-icon">${icon("bolt")}</span></section><div class="challenge-toolbar"><div class="tabs" role="group" aria-label="Challenge categories">${this.filterTabs("challenge", this.challengeFilter)}</div><button class="button button-outline" data-action="shuffle">${icon("shuffle")} Shuffle the deck</button></div><div class="challenges-grid">${challenges.map((c) => this.challengeCardHTML(c)).join("")}</div><p class="challenge-help">${icon("info")}Tap or press Enter to flip. Completion is self-reported. XP measures practice, not financial success.</p>`;
+    return `<div class="page-intro"><div><span class="page-kicker">SIDE QUESTS / CAMPUS EDITION</span><h1>SMALL QUESTS.<br><span>REAL-LIFE PAYOFF.</span></h1><p>Pick a card. Try it between classes. Keep the habit, collect the XP.</p></div><span class="period-tag">${completed} / ${CHALLENGES.length} complete</span></div><section class="learning-banner"><div><span class="page-kicker">QUEST LOG / SELF-REPORTED PRACTICE</span><h2>${completed === CHALLENGES.length ? "Look at all that momentum." : completed ? "You’re building something good." : "Pick something you can do this week."}</h2><p>${completed} challenges complete · ${this.state.completedChallenges.reduce((sum, id) => sum + CHALLENGES.find((c) => c.id === id).xp, 0)} challenge XP earned</p><div class="progress-track" role="progressbar" aria-label="Challenges completed" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${CHALLENGES.length}"><span style="width:${(completed / CHALLENGES.length) * 100}%"></span></div></div><span class="banner-icon">${icon("bolt")}</span></section><div class="challenge-toolbar"><div class="tabs" role="group" aria-label="Challenge categories">${this.filterTabs("challenge", this.challengeFilter)}</div><button class="button button-outline" data-action="shuffle">${icon("shuffle")} Shuffle the deck</button></div><div class="challenges-grid">${challenges.map((c) => this.challengeCardHTML(c)).join("")}</div><p class="challenge-help">${icon("info")}Tap or press Enter to flip. Completion is self-reported. XP measures practice, not financial success.</p>`;
   }
 
   challengeCardHTML(challenge) {
@@ -992,7 +1281,7 @@ class KoinApp {
     const settings = this.state.tools;
     const categories = Finance.spending(this.state.transactions);
     const expenses = Finance.totals(this.state).expenses;
-    return `<div class="page-intro"><div><span class="page-kicker">A LITTLE CLARITY GOES A LONG WAY</span><h1>Less guesswork. <span>More game plan.</span></h1><p>Try the numbers. Explore a possibility. Find what works for you.</p></div></div><div class="tools-grid"><section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">01 / GIVE YOUR MONEY A JOB</span><h2>Your budget, a first draft.</h2></div><span class="square-icon">${icon("wallet")}</span></div><p class="tool-description">Try the 50/30/20 framework. These are flexible starting points, so adjust your real budget around your actual essential costs.</p><div class="form-field"><label for="budget-income">Monthly income ($)</label><input id="budget-income" type="number" min="0" max="1000000000" step="0.01" value="${settings.budgetIncome}" inputmode="decimal"></div><div class="budget-split" id="budget-result" aria-live="polite"></div><p class="tool-note">Needs: essential costs. Wants: things you enjoy. Savings: future goals or debt repayment. A small or irregular income may need a different split.</p><button class="text-button inline-link lime" data-action="use-income" style="margin-top:20px">Use my recorded income ${icon("arrow")}</button></section>
+    return `<div class="page-intro"><div><span class="page-kicker">FOR THE SHARED BILLS AND THE BIGGER PLANS</span><h1>DO THE MATH.<br><span>MAKE THE PLANS.</span></h1><p>Try the numbers. Explore a possibility. Find what works for you.</p></div></div><div class="tools-grid">${this.billSplitHTML()}<section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">01 / GIVE YOUR MONEY A JOB</span><h2>Your budget, a first draft.</h2></div><span class="square-icon">${icon("wallet")}</span></div><p class="tool-description">Try the 50/30/20 framework. These are flexible starting points, so adjust your real budget around your actual essential costs.</p><div class="form-field"><label for="budget-income">Monthly income ($)</label><input id="budget-income" type="number" min="0" max="1000000000" step="0.01" value="${settings.budgetIncome}" inputmode="decimal"></div><div class="budget-split" id="budget-result" aria-live="polite"></div><p class="tool-note">Needs: essential costs. Wants: things you enjoy. Savings: future goals or debt repayment. A small or irregular income may need a different split.</p><button class="text-button inline-link lime" data-action="use-income" style="margin-top:20px">Use my recorded income ${icon("arrow")}</button></section>
       <section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">02 / EXPLORE THE LONG GAME</span><h2>Small amounts. Over time.</h2></div><span class="square-icon">${icon("trend")}</span></div><p class="tool-description">See how regular contributions and a hypothetical return could compound. Try a negative return to explore losses, too.</p><div class="form-row"><div class="form-field"><label for="invest-initial">Starting amount ($)</label><input id="invest-initial" type="number" min="0" max="1000000000" step="0.01" value="${settings.investmentInitial}" inputmode="decimal"></div><div class="form-field"><label for="invest-monthly">Monthly addition ($)</label><input id="invest-monthly" type="number" min="0" max="1000000" step="0.01" value="${settings.investmentMonthly}" inputmode="decimal"></div></div><div class="form-row"><div class="form-field"><label for="invest-years">Years (1–50)</label><input id="invest-years" type="number" min="1" max="50" step="1" value="${settings.investmentYears}" inputmode="numeric"></div><div class="form-field"><label for="invest-rate">Assumed annual return (%)</label><input id="invest-rate" type="number" min="-20" max="20" step="0.1" value="${settings.investmentRate}" inputmode="decimal"></div></div><div id="compound-result" aria-live="polite"></div><p class="tool-note">Illustration only, not a forecast. Assumes a constant annual rate divided monthly and contributions at month-end. Excludes fees, inflation, and taxes. Real returns vary and investments can lose value.</p></section>
       <section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">03 / NOTICE THE PATTERNS</span><h2>Where your money goes.</h2></div><span class="square-icon">${icon("bag")}</span></div><p class="tool-description">A breakdown of all recorded expenses. Notice which categories match your priorities and where you might want to make a change.</p>${categories.length ? `<div class="spending-grid">${categories.map(([category, total]) => `<div class="spending-row"><div><span>${escapeHTML(category)}</span><span>${money(total, 2)} · ${Math.round((total / expenses) * 100)}%</span></div><div class="progress-track"><span style="width:${(total / expenses) * 100}%"></span></div></div>`).join("")}</div><p class="tool-note" style="margin-top:18px">Total recorded expenses: ${money(expenses, 2)}</p>` : `<div class="empty-state">${icon("bag")}<p>Record a fictional expense to see your spending patterns.</p><button class="button button-soft" data-action="transaction">Add an expense</button></div>`}</section>
       <section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">04 / TURN A GOAL INTO A PLAN</span><h2>Make your “one day” a little closer.</h2></div><span class="square-icon">${icon("target")}</span></div><p class="tool-description">${escapeHTML(this.state.goal.name)} · Your current savings plan.</p><div class="goal-total"><strong>${money(Finance.goal(this.state.goal).remaining, 2)}</strong><span>left to save</span></div><p class="goal-estimate">${icon("clock")}<span>${this.goalEstimate()}</span></p><p class="tool-note" style="margin-top:18px">This estimate assumes consistent contributions, with no interest or withdrawals. Adjust your goal as your circumstances change.</p><button class="button button-soft" data-action="goal" style="margin-top:25px">Explore my savings plan ${icon("arrow")}</button></section>
@@ -1369,6 +1658,7 @@ class KoinApp {
       : "Not quite. Take another look at the lesson and try again.";
     if (correct && !this.state.completedLessons.includes(id)) {
       this.state.completedLessons.push(id);
+      this.recordPractice();
       this.save();
       if (this.page !== "home") this.renderPage();
       this.toast("A little wiser. Lesson complete · +20 XP");
@@ -1399,7 +1689,10 @@ class KoinApp {
       this.state.completedChallenges = this.state.completedChallenges.filter(
         (value) => value !== id,
       );
-    else this.state.completedChallenges.push(id);
+    else {
+      this.state.completedChallenges.push(id);
+      this.recordPractice();
+    }
     this.save();
     this.renderPage();
     $(`[data-flip="${id}"]`)?.focus({ preventScroll: true });
@@ -1449,6 +1742,128 @@ class KoinApp {
       },
       reducedMotion() ? 10 : 390,
     );
+  }
+
+  // The weekly plan is a reservation calculator; it never creates transactions.
+  weeklyPlanHTML() {
+    const plan = this.state.campus;
+    const result = CampusMath.runway(
+      Finance.totals(this.state).balance,
+      plan.bills,
+      plan.buffer,
+      plan.payday,
+    );
+    const calendar = Array.from({ length: 7 }, (_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
+      return `<div class="${i === 0 ? "today" : ""}"><span>${date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase()}</span><strong>${date.getDate()}</strong><span>${i === 0 ? "TODAY" : "·"}</span></div>`;
+    }).join("");
+    return `<section class="week-planner"><div><span class="page-kicker">THE SPACE BETWEEN NOW AND PAYDAY</span><h2>${result.shortfall ? "The plan needs a second look." : result.days ? "Can I say yes to tonight?" : "Time to set your next payday."}</h2><div class="week-plan-values"><strong>${money(result.daily, 2)}</strong><span>per day · ${result.days} days to go</span></div><p>${result.shortfall ? `${money(result.shortfall, 2)} short of your protected amounts. Check your balance and upcoming essentials first.` : `${money(result.spendable, 2)} spendable after ${money(plan.bills, 2)} for bills and ${money(plan.buffer, 2)} protected. This is a plan, not a bank balance.`}</p><button class="text-button" data-action="weekly-plan">Edit my weekly plan ${icon("edit")}</button></div><div class="week-calendar" aria-label="The next seven days">${calendar}</div></section>`;
+  }
+
+  openWeeklyPlan() {
+    const plan = this.state.campus;
+    this.openModal(
+      `${this.modalHeading("MAKE ROOM FOR THE NON-NEGOTIABLES", "Your money until payday.", "Start with what you need to protect. Then see what’s left for everything else.")}<form id="weekly-form"><div class="form-field"><label for="weekly-payday">Next payday or allowance date</label><input type="date" id="weekly-payday" name="payday" min="${localDate(1)}" max="${localDate(365)}" value="${plan.payday}" required></div><div class="form-row"><div class="form-field"><label for="weekly-bills">Upcoming bills to protect ($)</label><input type="number" id="weekly-bills" name="bills" value="${plan.bills}" min="0" max="1000000000" step="0.01" required></div><div class="form-field"><label for="weekly-buffer">Extra buffer to protect ($)</label><input type="number" id="weekly-buffer" name="buffer" value="${plan.buffer}" min="0" max="1000000000" step="0.01" required></div></div><div class="planner-preview" id="weekly-preview" aria-live="polite"></div><button type="submit" class="button full-width">Save my plan ${icon("check")}</button></form><p class="prototype-note">${icon("info")}<span>Reserves are deducted from the available balance only in this calculator. Include savings in the buffer only if they are part of that balance. No transactions are created.</span></p>`,
+    );
+    this.updateWeeklyPreview();
+  }
+
+  updateWeeklyPreview() {
+    const form = $("#weekly-form");
+    if (!form) return;
+    if (
+      $$("input", form).some((input) => !input.value || !input.validity.valid)
+    ) {
+      $("#weekly-preview").textContent =
+        "Choose a future payday and non-negative amounts.";
+      return;
+    }
+    const data = new FormData(form);
+    const result = CampusMath.runway(
+      Finance.totals(this.state).balance,
+      Number(data.get("bills")),
+      Number(data.get("buffer")),
+      data.get("payday"),
+    );
+    $("#weekly-preview").innerHTML =
+      `<strong>${money(result.daily, 2)} / day</strong><p>${result.shortfall ? `${money(result.shortfall, 2)} short of your reserves. Adjust the plan before committing to optional spending.` : `${money(result.spendable, 2)} available for the next ${result.days} days, after the amounts you protected.`}</p>`;
+  }
+
+  billSplitHTML() {
+    return `<section class="panel tool-panel"><div class="panel-title"><div><span class="page-kicker">THE ROOMMATE MATH</span><h2>Split the bill. Keep the peace.</h2></div><span class="square-icon">${icon("coins")}</span></div><p class="tool-description">Dinner, electricity, or the shared grocery run. An equal split that accounts for every cent.</p><div class="form-row"><div class="form-field"><label for="split-total">Total bill ($)</label><input id="split-total" type="number" value="${this.state.campus.splitTotal}" min="0" max="1000000" step="0.01" required inputmode="decimal"></div><div class="form-field"><label for="split-people">Number of people</label><input id="split-people" type="number" value="${this.state.campus.splitPeople}" min="1" max="50" step="1" required inputmode="numeric"></div></div><div class="bill-result" id="bill-result" aria-live="polite"></div><p class="tool-note" style="margin-top:17px">Agree on the split together. Equal isn’t always fair if people used different amounts. This tool makes no payments.</p></section>`;
+  }
+
+  updateBillSplit() {
+    const total = $("#split-total"),
+      people = $("#split-people");
+    if (!total || !people) return;
+    if (
+      [total, people].some(
+        (input) => input.value === "" || !input.validity.valid,
+      )
+    ) {
+      $("#bill-result").textContent =
+        "Enter a valid total and 1–50 whole people.";
+      return;
+    }
+    const result = CampusMath.split(Number(total.value), Number(people.value));
+    $("#bill-result").innerHTML =
+      `<span>PER PERSON</span><strong>${result.extra ? `${money(result.low, 2)}–${money(result.high, 2)}` : money(result.low, 2)}</strong><p>${result.extra ? `${result.extra} ${result.extra === 1 ? "person pays" : "people pay"} ${money(result.high, 2)}; the other ${result.people - result.extra} ${result.people - result.extra === 1 ? "pays" : "pay"} ${money(result.low, 2)}. Every cent is accounted for.` : `${result.people} equal ${result.people === 1 ? "share" : "shares"} of ${money(result.low, 2)}. Total: ${money(Number(total.value), 2)}.`}</p>`;
+    this.state.campus.splitTotal = Number(total.value);
+    this.state.campus.splitPeople = Number(people.value);
+    this.save();
+  }
+
+  playHTML() {
+    const current = DILEMMAS[this.dilemmaIndex];
+    const choice =
+      this.dilemmaChoice === null ? null : current.options[this.dilemmaChoice];
+    const count = Object.keys(this.state.campus.decisions).length;
+    return `<div class="page-intro"><div><span class="page-kicker">THE STUFF THAT HAPPENS BETWEEN LECTURES</span><h1>YOUR MONEY.<br><span>YOUR CALL.</span></h1><p>Six familiar situations. Pick a move and explore the trade-off.</p></div><span class="period-tag">${count} / ${DILEMMAS.length} explored</span></div><div class="play-layout"><section class="scenario-card" aria-labelledby="scenario-title"><div class="scenario-top"><span>DECISION ${String(this.dilemmaIndex + 1).padStart(2, "0")} / 06</span><span class="tag">${current.tag}</span></div><h2 id="scenario-title" tabindex="-1">${current.title}</h2><p class="scenario-description">${current.context}</p><div class="scenario-budget"><span>${current.id === "first-gig" ? "POTENTIAL GIG FEE / BEFORE COSTS" : "YOUR STARTING AMOUNT / THIS ROUND"}</span><strong>${money(current.budget, 2)}</strong></div><div class="scenario-options">${current.options.map((option, i) => `<button class="scenario-option ${this.dilemmaChoice === i ? "selected" : ""}" data-dilemma-choice="${i}" ${choice ? "disabled" : ""}><span class="option-letter">${String.fromCharCode(65 + i)}</span><span><strong>${option.title}</strong><small>${option.detail}</small></span><b>${money(option.cost)} ${icon("up-right")}</b></button>`).join("")}</div>${choice ? `<div class="scenario-result" role="status"><h3>${choice.headline}</h3><p>${choice.feedback}</p><p class="result-money">${current.id === "first-gig" && this.dilemmaChoice === 2 ? "GIG DECLINED · NO EARNINGS OR COSTS" : `${money(current.budget - choice.cost, 2)} ${current.id === "first-gig" ? "AFTER DIRECT COSTS, BEFORE TAX" : "CASH REMAINING IN THIS ROUND"}`}${current.id === "pay-later" && this.dilemmaChoice === 0 ? " · $60 STILL OWED" : ""}</p></div><div class="scenario-actions"><button class="text-button" data-action="dilemma-replay">Try another choice</button><button class="button" data-action="dilemma-next">${this.dilemmaIndex === DILEMMAS.length - 1 ? "Back to the first" : "Next situation"} ${icon("arrow")}</button></div>` : '<div class="scenario-footnote">NO PERFECT SCORE TO CHASE. TAKE A SECOND. MAKE YOUR CALL.</div>'}<p class="scenario-footnote">FICTIONAL MONEY. CHOICES HERE NEVER CHANGE YOUR TRANSACTIONS.</p></section><aside class="play-side"><section class="panel"><div class="panel-title"><h3>Pick your situation.</h3></div><div class="scenario-map">${DILEMMAS.map((scenario, i) => `<button class="${i === this.dilemmaIndex ? "current" : ""}" data-dilemma-index="${i}" aria-current="${i === this.dilemmaIndex ? "step" : "false"}"><span>${String(i + 1).padStart(2, "0")}</span>${scenario.label}${this.state.campus.decisions[scenario.id] ? icon("check") : ""}</button>`).join("")}</div></section><section class="panel"><span class="page-kicker">PRACTICE COUNTS</span><div class="play-reward">${count * 15}<span>XP FROM DILEMMAS</span></div><p class="play-note"><strong>15 XP the first time you explore each situation.</strong> You’re rewarded for considering a decision, not for choosing the cheapest option.</p><button class="text-button inline-link lime" data-lesson="${current.lesson}" style="margin-top:20px">Read the related lesson ${icon("arrow")}</button></section></aside></div>`;
+  }
+
+  chooseDilemma(index) {
+    const scenario = DILEMMAS[this.dilemmaIndex];
+    if (
+      !Number.isInteger(index) ||
+      !scenario.options[index] ||
+      this.dilemmaChoice !== null
+    )
+      return;
+    this.dilemmaChoice = index;
+    const first = !this.state.campus.decisions[scenario.id];
+    this.state.campus.decisions[scenario.id] = {
+      choice: index,
+      date: localDate(),
+    };
+    this.recordPractice();
+    this.save();
+    this.renderPage();
+    $(".scenario-result")?.scrollIntoView({
+      behavior: reducedMotion() ? "auto" : "smooth",
+      block: "nearest",
+    });
+    if (first) this.toast("Decision explored. +15 XP for thinking it through.");
+  }
+
+  recordPractice() {
+    const today = localDate();
+    if (!this.state.campus.activityDays.includes(today))
+      this.state.campus.activityDays.push(today);
+    this.state.campus.activityDays = this.state.campus.activityDays.slice(-180);
+  }
+
+  previewChoice(index) {
+    const choice = DILEMMAS[0].options[index];
+    if (!choice) return;
+    $$("[data-preview-choice]").forEach((button) => {
+      const selected = Number(button.dataset.previewChoice) === index;
+      button.classList.toggle("selected", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    $("#home-decision-feedback").innerHTML =
+      `<strong>${money(80 - choice.cost)} left for your week.</strong> ${escapeHTML(choice.headline)}`;
   }
 
   openAbout() {
@@ -1506,6 +1921,21 @@ class KoinApp {
       this.modal.open
     )
       this.closeModal();
+    if (target.dataset.previewChoice !== undefined) {
+      this.previewChoice(Number(target.dataset.previewChoice));
+      return;
+    }
+    if (target.dataset.dilemmaChoice !== undefined) {
+      this.chooseDilemma(Number(target.dataset.dilemmaChoice));
+      return;
+    }
+    if (target.dataset.dilemmaIndex !== undefined) {
+      this.dilemmaIndex = Number(target.dataset.dilemmaIndex);
+      this.dilemmaChoice = null;
+      this.renderPage();
+      $("#scenario-title")?.focus({ preventScroll: true });
+      return;
+    }
     if (target.dataset.auth) {
       this.openAuth(target.dataset.auth);
       return;
@@ -1597,6 +2027,32 @@ class KoinApp {
     if (!action) return;
     const actions = {
       close: () => this.closeModal(),
+      "coffee-preview": () => {
+        const added = target.getAttribute("aria-pressed") !== "true";
+        target.setAttribute("aria-pressed", String(added));
+        $("#receipt-coffee").hidden = !added;
+        $("#receipt-room").innerHTML = added
+          ? "$94<span>.00</span>"
+          : "$100<span>.00</span>";
+        target.innerHTML = added
+          ? "− Undo the coffee <span>$6</span>"
+          : "+ One more coffee? <span>$6</span>";
+        $("#receipt-feedback").textContent = added
+          ? "$6 for the coffee. $94 left for the week. Your call."
+          : "Tap it. See the trade-off. No actual coffee included.";
+      },
+      "weekly-plan": () => this.openWeeklyPlan(),
+      "dilemma-next": () => {
+        this.dilemmaIndex = (this.dilemmaIndex + 1) % DILEMMAS.length;
+        this.dilemmaChoice = null;
+        this.renderPage();
+        $("#scenario-title")?.focus({ preventScroll: true });
+      },
+      "dilemma-replay": () => {
+        this.dilemmaChoice = null;
+        this.renderPage();
+        $(".scenario-option")?.focus({ preventScroll: true });
+      },
       about: () => this.openAbout(),
       menu: () => {
         const menu = $("#mobile-nav");
@@ -1673,6 +2129,7 @@ class KoinApp {
         "balance-form",
         "transaction-form",
         "goal-form",
+        "weekly-form",
       ].includes(form.id)
     )
       return;
@@ -1687,6 +2144,14 @@ class KoinApp {
       return;
     }
     const data = new FormData(form);
+    if (form.id === "weekly-form") {
+      Object.assign(this.state.campus, {
+        payday: data.get("payday"),
+        bills: Number(data.get("bills")),
+        buffer: Number(data.get("buffer")),
+      });
+      this.toast("Weekly plan saved. You know what you have to work with.");
+    }
     if (form.id === "balance-form") {
       this.state.startingBalance = roundMoney(Number(data.get("starting")));
       this.state.baseIncome = roundMoney(Number(data.get("income")));
@@ -1752,6 +2217,8 @@ class KoinApp {
       $("#home-wants").textContent = money(split.wants);
       $("#home-savings").textContent = money(split.savings);
     }
+    if (input.closest("#weekly-form")) this.updateWeeklyPreview();
+    if (input.id.startsWith("split-")) this.updateBillSplit();
     if (input.id === "activity-search") {
       this.activitySearch = input.value;
       this.renderTransactions();
@@ -1769,6 +2236,7 @@ class KoinApp {
     }
     if (input.closest("#transaction-form") && input.name === "type")
       $("#transaction-category").innerHTML = this.categoryOptions(input.value);
+    if (input.closest("#weekly-form")) this.updateWeeklyPreview();
     if (input.id === "goal-frequency") this.updateGoalPreview();
   }
 }
