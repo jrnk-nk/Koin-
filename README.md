@@ -7,7 +7,7 @@ A financial education prototype for teenagers and young adults, built with HTML,
 ## Deploy on Vercel
 
 1. Sign in to [Vercel](https://vercel.com/new) with GitHub.
-2. Select **Add New → Project**, then import **jrnk-nk/koin**. If the private repository is missing, grant Vercel access to it in the GitHub integration settings.
+2. Select **Add New → Project**, then import **jrnk-nk/Koin-**. If the private repository is missing, grant Vercel access to it in the GitHub integration settings.
 3. Choose **Other** as the framework preset, keep the root directory as `./`, and leave the build and install commands empty. The output directory is `.` as configured in `vercel.json`.
 4. Click **Deploy**.
 
